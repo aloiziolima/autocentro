@@ -1,0 +1,54 @@
+{
+  "name": "autocentro",
+  "version": "1.0.0",
+  "description": "Front End Centro Automotivo feito com Vue.js",
+  "author": "Aloizio Lima <lima.aloizio@gmail.com>",
+  "private": false,
+  "scripts": {
+    "watchify": "watchify -vd -p browserify-hmr -e src/main.js -o dist/build.js",
+    "serve": "http-server -c 1 -a localhost",
+    "dev": "npm-run-all --parallel watchify serve",
+    "build": "cross-env NODE_ENV=production browserify src/main.js | uglifyjs -c warnings=false -m > dist/build.js"
+  },
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "bootswatch": "^3.3.6",
+    "jquery": "^1.11.0",
+    "jwt-decode": "^2.1.0",
+    "moment": "^2.14.1",
+    "toastr": "^2.1.2",
+    "vue": "^1.0.0",
+    "vue-resource": "^0.9.3",
+    "vue-router": "^0.7.13",
+    "vue-toast": "^2.0.3",
+    "vue-validator": "^2.1.3",
+    "vuex": "^1.0.0-rc.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.0.0",
+    "babel-eslint": "^6.1.2",
+    "babel-plugin-transform-runtime": "^6.0.0",
+    "babel-preset-es2015": "^6.0.0",
+    "babel-preset-stage-2": "^6.0.0",
+    "babel-runtime": "^6.0.0",
+    "babelify": "^7.2.0",
+    "browserify": "^12.0.1",
+    "browserify-hmr": "^0.3.1",
+    "cross-env": "^1.0.6",
+    "eslint": "^3.1.1",
+    "eslint-config-vue": "^1.0.3",
+    "eslint-plugin-html": "^1.5.1",
+    "eslint-plugin-vue": "^0.1.1",
+    "http-server": "^0.9.0",
+    "npm-run-all": "^1.6.0",
+    "uglify-js": "^2.5.0",
+    "vueify": "^8.5.2",
+    "watchify": "^3.4.0"
+  },
+  "browserify": {
+    "transform": [
+      "vueify",
+      "babelify"
+    ]
+  }
+}
